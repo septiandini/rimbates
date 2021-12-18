@@ -25,3 +25,5 @@ Route::post('/item/save', [Controllers\ItemController::class, 'saveItem']);
 Route::get('/customer',[Controllers\CustomerController::class,'viewCustomer']);
 
 Route::post('/customer/save',[Controllers\CustomerController::class,'saveCustomer']);
+
+Route::get('/sales', [Controllers\SalesController::class, 'viewSales']);

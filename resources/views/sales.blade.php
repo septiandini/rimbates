@@ -25,45 +25,54 @@
             </div>
         </div>
         <div class="container-fluid">
-            @if(count($errors) > 0)
-            <div class="alert alert-danger">
-                    @foreach ($errors->all() as $error)
-                    {{ $error }} <br/>
-                    @endforeach
-            </div>
-            @endif
-            <form action="/item/save" method="POST" enctype="multipart/form-data">
+            <form action="#" method="post">
                 {{ csrf_field() }}
                 <table>
                     <tr>
-                        <td>Nama</td>
-                        <td>:</td>
-                        <td><input type="text" name="nama"></td>
-                    </tr>
-                    <tr>
-                        <td>Unit</td>
+                        <td>Customer</td>
                         <td>:</td>
                         <td>
-                            <select name="unit">
-                                <option value="kg">kg</option>
-                                <option value="pcs">pcs</option>
+                            <select id="customer" name="customer">
+                                <option>Pilih Customer</option>
+                                @foreach($customer as $c)
+                                <option value="{{$c->id_cust}}">{{$c->nama_cust}}</option>
+                                @endforeach
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td>Stok</td>
+                        <td>Item</td>
                         <td>:</td>
-                        <td><input type="number" name="stok"></td>
+                        <td>
+                            <select id="item" name="item">
+                                <option>Pilih Barang</option>
+                                @foreach($item as $i)
+                                <option value="{{$i->id_item}}">{{$i->nama}} - {{$i->stok}}</option>
+                                @endforeach
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Harga</td>
+                        <td>Kuantitas</td>
                         <td>:</td>
-                        <td><input type="number" name="harga"></td>
+                        <td><input name="qty" type="number"></td>
                     </tr>
                     <tr>
-                        <td>Barang</td>
+                        <td>Total Diskon</td>
                         <td>:</td>
-                        <td><input type="file" name="file"></td>
+                        <td>
+                            <input id="diskon" name="diskon" type="text" value="" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Total Harga</td>
+                        <td>:</td>
+                        <td><input id="harga" name="harga" type="text" value="" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Total Bayar</td>
+                        <td>:</td>
+                        <td><input id="bayar" name="bayar" type="text" value="" readonly></td>
                     </tr>
                 </table>
                 <input type="submit" value="Simpan" class="btn btn-primary">
@@ -71,27 +80,23 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Id Item</th>
-                        <th>Nama</th>
-                        <th>Unit</th>
-                        <th>Stok</th>
+                        <th>Transaksi</th>
+                        <th>Tanggal</th>
+                        <th>Customer</th>
+                        <th>Item</th>
+                        <th>Kuantitas</th>
+                        <th>Diskon</th>
                         <th>Harga</th>
-                        <th>Barang</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($itemBarang as $ib)
-                    <tr>
-                        <td>{{ $ib->id_item }}</td>
-                        <td>{{ $ib->nama }}</td>
-                        <td>{{ $ib->unit }}</td>
-                        <td>{{ $ib->stok }}</td>
-                        <td>{{ $ib->harga }}</td>
-                        <td><img width="150px" src="{{ url('/data_item/'.$ib->barang) }}"></td>
-                    </tr>
-                    @endforeach
+                    
                 </tbody>
             </table>
         </div>
     </body>
+    <script>
+        var arrCust = 
+    </script>
 </html>

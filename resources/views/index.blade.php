@@ -19,7 +19,7 @@
                         <a class="nav-link" href="/customer">Customer</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sales</a>
+                        <a class="nav-link" href="/sales">Sales</a>
                     </li>
                 </ul>
             </div>
